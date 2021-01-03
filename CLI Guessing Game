@@ -1,0 +1,28 @@
+import sys
+from random import randint
+command_line_arguments = sys.argv
+print(command_line_arguments)
+def cli_operation():
+    try:
+        if len(command_line_arguments) == 4:
+            lower = int(command_line_arguments[1])
+            upper = int(command_line_arguments[2])
+            guess = int(command_line_arguments[3])
+            mystery_number = randint(lower, upper)
+            print(f'The lower range of the guessing game is {lower}')
+            print(f'The upper range of the guessing game is {upper}')
+            print(f'Your guess was {guess}')
+            print(f'The random number was {mystery_number}')
+            if guess == mystery_number:
+                print('Do do doooo! You won the game you champ, you!')
+            else:
+                print('w-wu-waaaughwow. What a shame! Maybe give it another go?')
+            #if type(lower) or type(upper) != int:
+            #    print('Command line arguments must be numbers!')
+            #else:
+            #    return True
+    except:
+        print('''For the guessing game to function You must input 3 command line arguments: 
+        the lower number range, the upper number range, then your guess''')
+        return False
+cli_operation()
