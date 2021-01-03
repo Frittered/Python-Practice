@@ -1,0 +1,44 @@
+
+#testing the mechanisms of generators
+def generator_fun(list):
+  for i in list:
+    yield i[0] + ' ' + i[1]
+    
+name_list =[['fritz', 'stevenson'], ['mia', 'pan'], ['graham', 'sondermann']] 
+g = generator_fun(name_list)
+print(next(g))
+print(next(g))
+print(next(g))
+
+#fibonacci generator
+def fib(list):
+  a=0
+  b=1
+  for i in list:
+    yield a
+    temp = a
+    a = b
+    b = temp + b
+
+fib = fib(range(1000))
+
+# Let's create a performance decorator to test how this generator is performing
+def performance(fn):
+  def wrapper(*args):
+    time_1 = time.time()
+    fn(*args)
+    time_2 = time.time()
+    total_time = time_2-time_1
+    return print(f'Completion time:{total_time}')
+  return wrapper
+  
+@performance
+def fib_sequencer(place):
+  place += 1
+  for i in list(range(place)):
+    print(next(fib))
+    #what if we only wanted the final number?
+    #if i = place-1:
+    #  print(next(fib)) \\then take away the print above
+ #just plug in the fibonacci index you want to access and it will give you the sequence up to that index
+fib_sequencer(25)
