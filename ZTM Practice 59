@@ -4,4 +4,5 @@ def fractions_from_half(itr):
         x = lambda x, y, z: x/y + z
         total = x(i+1, i+2,total)
     return print(total)
+    
 fractions_from_half(input('How many iterations would you like:  '))
