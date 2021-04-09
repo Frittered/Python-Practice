@@ -4,11 +4,11 @@ def random_even_in_range(x, y, iterations):
     nums = []
     while len(nums) < iterations:
         random_number = random.randint(x, y+1)
-        if  not random_number & 2:
+        if not random_number & 2:
             nums.append(random_number)
     return print(nums)
 help(random_even_in_range)
-x = input('Enter lower range')
-y = input('Enter Upper range(inclusive)')
-it = input('How many iterations would you like?')
+x = int(input('Enter lower range '))
+y = int(input('Enter Upper range(inclusive) '))
+it = int(input('How many iterations would you like? '))
 random_even_in_range(x, y, it)
