@@ -1,0 +1,29 @@
+import hashlib
+
+
+username = input('What would you like your username to be?')
+password = input('Type a unique password')
+
+data_repository = {}
+
+def encrypt(user, passw):
+    user = user.encode(encoding='utf-8')
+    passw = passw.encode(encoding='utf-8')
+    a = hashlib.sha1()
+    b = hashlib.sha256()
+    user = a.update(user)
+    user = a.hexdigest()
+    print(user)
+    user = b.update(user[0:7].encode(encoding='utf-8'))
+    user = b.hexdigest()
+    
+    y = hashlib.sha1()
+    z = hashlib.sha256()
+    passw = z.update(passw)
+    passw= z.hexdigest()
+    print(passw)
+    passw = y.update(passw[0:7].encode(encoding='utf-8'))
+    passw = y.hexdigest
+    print(f'encrypted username: {user}')
+    print(f'encrypted password: {passw}')
+encrypt(username, password)
