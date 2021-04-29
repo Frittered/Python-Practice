@@ -27,3 +27,24 @@ def encrypt(user, passw):
     print(f'encrypted username: {user}')
     print(f'encrypted password: {passw}')
 encrypt(username, password)
+
+#for now this is a totally separate function with security risks: educational exercise only
+alphabet= 'abcdefghijklmnopqrstuvwxyz'
+print(len(alphabet))
+dict_salt = dict()
+import random
+def salt_key(key):
+    mod = random.randint(0, 100)
+    salt_key = [i for i in alphabet][mod%25]
+    insertion = mod%(len(key)-1)
+    salted_key= key[:insertion]+salt_key+key[insertion:]
+    dict_salt[salted_key]=mod
+    return print(mod, salt_key, salted_key)
+def unsalt(key, mod):
+    index = mod%(len(key)-2)
+    key = key[:index]+key[(index+1):]
+    print(key)
+salt_key('bugerrooo')
+for k,v in dict_salt.items():
+    print(k, v)
+    unsalt(k, v)
