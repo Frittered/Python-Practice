@@ -1,7 +1,7 @@
 import datetime
 import psycopg2
 # connect to the database of choice
-conn = psycopg2.connect(dbname ='Brothers_Data', user='postgres', password='calo124chortus')
+conn = psycopg2.connect(dbname ='Brothers_Data', user='postgres', password='secrets')
 
 #cur is the module that allows for sql commends to operate on the database
 cur = conn.cursor()
