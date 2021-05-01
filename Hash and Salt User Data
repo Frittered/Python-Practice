@@ -1,50 +1,65 @@
 import hashlib
+import random
 
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+data_repository = {}
 
 username = input('What would you like your username to be?')
 password = input('Type a unique password')
 
-data_repository = {}
-
 def encrypt(user, passw):
-    user = user.encode(encoding='utf-8')
-    passw = passw.encode(encoding='utf-8')
-    a = hashlib.sha1()
-    b = hashlib.sha256()
-    user = a.update(user)
-    user = a.hexdigest()
-    print(user)
-    user = b.update(user[0:7].encode(encoding='utf-8'))
-    user = b.hexdigest()
-    
-    y = hashlib.sha1()
-    z = hashlib.sha256()
-    passw = z.update(passw)
-    passw= z.hexdigest()
-    print(passw)
-    passw = y.update(passw[0:7].encode(encoding='utf-8'))
-    passw = y.hexdigest
-    print(f'encrypted username: {user}')
-    print(f'encrypted password: {passw}')
+    user_salt_key = ''
+    def mod_key():
+        mod = random.randint(0, 100)
+        return mod
+    def salt_key(key, mod_key):
+        salt_key = [i for i in alphabet][mod_key % 25]
+        insertion = mod_key % (len(key) - 1)
+        salted_key = key[:insertion] + salt_key + key[insertion:]
+        salted_key = salted_key.encode(encoding='utf-8')
+        a = hashlib.sha1()
+        a.update(salted_key)
+        a.hexdigest()
+        return a.hexdigest()
+    user_mod_key = mod_key()
+    user_salt_key += str(user_mod_key)
+    user = salt_key(user, user_mod_key)
+    user_salt_key += 'a'
+    passw_mod_key = mod_key()
+    user_salt_key += str(passw_mod_key)
+    passw = salt_key(passw, passw_mod_key)
+    print(f'store this important user key for later use: {user_salt_key}')
+    data_repository[user] = passw
+
+
 encrypt(username, password)
 
-#for now this is a totally separate function with security risks: educational exercise only
-alphabet= 'abcdefghijklmnopqrstuvwxyz'
-print(len(alphabet))
-dict_salt = dict()
-import random
-def salt_key(key):
-    mod = random.randint(0, 100)
-    salt_key = [i for i in alphabet][mod%25]
-    insertion = mod%(len(key)-1)
-    salted_key= key[:insertion]+salt_key+key[insertion:]
-    dict_salt[salted_key]=mod
-    return print(mod, salt_key, salted_key)
-def unsalt(key, mod):
-    index = mod%(len(key)-2)
-    key = key[:index]+key[(index+1):]
-    print(key)
-salt_key('bugerrooo')
-for k,v in dict_salt.items():
-    print(k, v)
-    unsalt(k, v)
+
+def verify_encrypted_item(user, passw, salt_key):
+    a = None
+    b = None
+    for i in range(len(salt_key)):
+        if salt_key[i] == 'a':
+            a = int(salt_key[:i])
+            b = int(salt_key[(i + 1):])
+
+    def pre_salted_key(key, salt_subkey):
+        mod = salt_subkey
+        salt_key = [i for i in alphabet][mod % 25]
+        insertion = mod % (len(key) - 1)
+        salted_key = key[:insertion] + salt_key + key[insertion:]
+        salted_key = salted_key.encode(encoding='utf-8')
+        a = hashlib.sha1()
+        a.update(salted_key)
+        return a.hexdigest()
+    user = pre_salted_key(user, a)
+    passw = pre_salted_key(passw, b)
+    return print(bool(data_repository[user] == passw))
+
+
+print('Welcome Back!')
+a = input('What is your username')
+b = input('What is your password')
+c = input('Enter your user key')
+verify_encrypted_item(a, b, c)
