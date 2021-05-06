@@ -1,6 +1,8 @@
-# Python-Practice
-Series of Python practice problems to show my personal growth
+# Python Problems and Projects
 
-Zero to Mastery 100 Problems:
-  Part of the 2021 Python Developer Course.
+A set of work that highlights my growth and breadth of python skills.
+
+ZTM Practice:
+  Set of extra problems for the Zero to Mastery Academy 2021 Python Developer Course.
+  compilation can be found here: 'https://github.com/darkprinx/break-the-ice-with-python'
   Separated 0-100 for comprehension.
