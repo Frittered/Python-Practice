@@ -1,3 +1,4 @@
+#regex email
 import re
 def scrape_input(inp):
     regex_email = re.compile(r'([\w]+)@([\w]+)\.([\w]+)')
