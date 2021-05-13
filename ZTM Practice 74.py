@@ -1,3 +1,4 @@
+# Random numbers divisible by 5,7 in range
 import random
 def random_even_in_range(x, y, iterations):
     "Prints a number divisible by 5 and 7, with range (x, y) (iterations) times"
