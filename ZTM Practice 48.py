@@ -1,3 +1,4 @@
+# Class and class functions
 class rectangle:   
     def __init__(self, w, l):
         self.width = int(w)
