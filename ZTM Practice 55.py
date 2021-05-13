@@ -1,3 +1,4 @@
+# Scrape numbers with regex
 import re
 
 def scrape_input(inp):
