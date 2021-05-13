@@ -1,3 +1,4 @@
+# Shape class inheritance
 class shape:
     def __init__(self,*args):
         self.area = 0
