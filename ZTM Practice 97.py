@@ -1,3 +1,5 @@
+# Print formatting with rangolis
+
 alphabet ='abcdefghijklmnopqrstuvwxyz'
 def print_rangoli(n):
     string_slice = alphabet[0:-(len(alphabet)-int(n))]
