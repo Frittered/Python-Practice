@@ -1,3 +1,4 @@
+# Second highest number
 string = '''5
 2 3 6 6 5'''
 li = string.replace('\n',' ').split(' ')
