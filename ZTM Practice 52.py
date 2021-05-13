@@ -1,3 +1,4 @@
+# Custom error class
 class CustomizedError(Exception):
     
     def __init__(self, string, error):
