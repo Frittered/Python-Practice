@@ -1,3 +1,4 @@
+# Sum of increasing fractions function
 def fractions_from_half(itr):
     total = 0
     for i in range(int(itr)):
