@@ -1,3 +1,4 @@
+# Static class function
 class American:
     @staticmethod
     def print_nationality():
