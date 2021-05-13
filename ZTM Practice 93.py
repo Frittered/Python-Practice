@@ -1,4 +1,5 @@
 # Please write a program which prints all permutations of [1,2,3]
+
 li = [1,2,3]
 output_list =[]
 def permutate_list(li):
