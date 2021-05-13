@@ -1,3 +1,4 @@
+# timeit module function wrapping
 from timeit import timeit
 
 def basic_function():
