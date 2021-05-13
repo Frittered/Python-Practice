@@ -1,3 +1,5 @@
+# Print formatting
+
 import textwrap
 input_string = '''ABCDEFGHIJKLIMNOQRSTUVWXYZ
 4'''
