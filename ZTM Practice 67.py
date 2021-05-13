@@ -1,3 +1,4 @@
+# Binary Search Function for Object Index 
 search_list = sorted([0, 2023,42,98,542,1314,23,5123,99,32])
 
 def binary_search_index(match, search_list):
