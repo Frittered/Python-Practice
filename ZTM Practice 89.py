@@ -1,3 +1,4 @@
+# Class Inheritance
 class Person:
     def __init__(self):
         self.gender = 'N/A'
