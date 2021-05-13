@@ -1,3 +1,4 @@
+# Shuffle lisk
 def shuffle_list(input_list):
     from random import shuffle
     shuffle(input_list)
