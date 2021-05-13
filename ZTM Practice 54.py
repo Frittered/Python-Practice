@@ -1,3 +1,4 @@
+# Scrape emails with regex
 import re
 
 def scrape_input(inp):
