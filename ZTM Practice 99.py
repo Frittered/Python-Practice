@@ -1,3 +1,5 @@
+# Symmetric difference of list of lists
+
 inp = '''4
 2 4 5 9
 4
