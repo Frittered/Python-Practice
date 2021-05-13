@@ -1,4 +1,4 @@
-    
+# Using Assert to Confirm Results     
 def divisible_number_generator(number_range):
     for i in range(int(number_range)):
         if not i % 5 and not i % 7:
