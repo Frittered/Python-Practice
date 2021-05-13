@@ -1,3 +1,4 @@
+# More generator practice with dual factors 
 def divisible_number_generator(number_range):
     for i in range(int(number_range)):
         if not i % 5 and not i % 7:
