@@ -1,3 +1,5 @@
+# Weekday function
+
 import datetime
 week_days = ("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday")
 inp = '08 15 1965'
