@@ -1,3 +1,4 @@
+# Try and Except to filter Division Error
 def f(x):
     try:
         print(5/int(x))
