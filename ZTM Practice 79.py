@@ -1,3 +1,4 @@
+# All combinations of list objects
 a=['I','You']
 b=['play', 'love']
 c =['Football','Hockey']
