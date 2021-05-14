@@ -1,3 +1,4 @@
+# Fill a dictionary with functional programming
 def auto_dict():
     empty_dict ={}
     for i in range(1, 21):
